@@ -1,0 +1,35 @@
+title: Delo
+# description: Delo Blog
+# baseurl: ""
+# url: https://piazzai.github.io/cvless
+
+theme: cvless
+
+# site settings
+taglong: Pentester & Web Developer
+#tagshort: 
+
+# author settings
+author:
+#  name: Place Holder
+  email: "wdelo.hack@gmail.com"
+photo: /assets/images/delo.png
+address: Madrid, Spain
+#phone: +1 234 567 890
+
+# social media links
+social:
+  #facebook: username
+  github: wdeloo
+  #instagram: username
+  linkedin: username
+  #stackoverflow: 0000000/username
+  x: username
+
+# build settings
+permalink: pretty
+
+exclude:
+  - docker-compose.yml
+  - LICENSE
+  - README.md

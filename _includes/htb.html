@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+  <style>
+    htb{
+      display: grid;
+      grid-template-columns: 50% 50%;
+    }
+    .htb{
+      display: block;
+      margin: 0 2.5%;
+      text-align: center;
+      font-size: 1.3em;
+      font-weight: bold;
+      transition: 150ms;
+      overflow: auto;
+      color: greenyellow;
+      text-shadow: 0 0 3px black;
+    }
+    .htb:hover{
+      color: greenyellow;
+      border-bottom: none;
+      transform: scale(1.05263157895);
+    }
+    .htb:focus{
+      color: greenyellow;
+      border-bottom: none;
+    }
+    .htb > img{
+      border-radius: 10%;
+      margin-bottom: 7.5px;
+    }
+  </style>
+</head>
+<body>
+  <htb>
+    {% for page in site.pages %}
+      {% if page.carpeta == "htb" %}
+        <a class="htb" href="{{ page.title }}"><img src="../assets/images/htb/{{ page.title }}.png" width="100%"/>{{ page.title }}</a>
+      {% endif %}
+    {% endfor %}
+  </htb>
+</body>
+</html>

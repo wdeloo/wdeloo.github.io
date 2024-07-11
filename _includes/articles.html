@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+  <style>
+    articles{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    #article{
+      display: block;
+      color: crimson;
+      font-size: 1.3em;
+      text-shadow: 0 0 1.5px black;
+      width: 95%;
+      transition: all 150ms ease;
+      word-spacing: 2px;
+    }
+    #article:hover{
+      color: crimson;
+      border-bottom: none;
+      transform: scale(1.05263157895);
+    }
+    #article:hover + #DateAuthor{
+      transform: scale(0.9) translateY(15px);
+    }
+    #article > img{
+      width: 100%;
+      border-radius: 7.5%;
+    }
+    #article > b{
+      display: block;
+      width: 90%;
+      margin: auto;
+      text-align: justify;
+    }
+    #DateAuthor{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 60%;
+      margin-top: 30px;
+      margin-bottom: 40px;
+      transition: all 150ms ease;
+    }
+    #DateAuthor > span{
+      display: block;
+      color: var(--color-text);
+      font-size: 0.875em;
+      width: fit-content;
+    }
+    #DateAuthor > span > a{
+      border-color: var(--color-text);
+      font-weight: bold;
+      color: var(--color-text);
+    }
+    /**/
+    noarticles{
+      text-align: center;
+      display: block;
+      margin-top: 250px;
+      margin-bottom: 262.5px;
+      font-size: 1.5em;
+    }
+    noarticles > b{
+      display: block;
+      font-size: 2em;
+      font-weight: 600;
+      color: crimson;
+    }
+    /**/
+  </style>
+</head>
+<body>
+  <!---->
+  <noarticles><b>Sorry</b>There are no articles in this section yet</noarticles>
+  <!---->
+  <articles>
+    {% for page in site.pages %}
+      {% if page.carpeta == "articles" %}
+          <a id="article" href="{{ page.url }}">
+            <img src="../assets/images/articles/{{ page.title }}.png" width="100%"/>
+            <b>{{ page.title }}</b>
+          </a>
+          <div id="DateAuthor">
+            <span>Uploaded on {{ page.date | date: "%B %d, %Y" }}</span><span style="text-align: center;">&bull;</span><span style="text-align: right;">Written by <a href="{% if page.author == 'Delo' %} /about-me {% else %}{{page.link}}{% endif %}">{{ page.author }}</a></span>
+          </div>
+      {% endif %}
+    {% endfor %}
+  </articles>
+</body>
+</html>
