@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+  <style>
+    articles{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    #article{
+      display: block;
+      color: cornflowerblue;
+      font-size: 1.3em;
+      text-shadow: 0 0 1.5px black;
+      width: 95%;
+      transition: all 150ms ease;
+      word-spacing: 2px;
+    }
+    #article:hover{
+      color: cornflowerblue;
+      border-bottom: none;
+      transform: scale(1.05263157895);
+    }
+    #article:hover + #DateAuthor{
+      transform: scale(0.9) translateY(15px);
+    }
+    #article > img{
+      width: 100%;
+      border-radius: 7.5%;
+    }
+    #article > b{
+      display: block;
+      width: 90%;
+      margin: auto;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+  <articles>
+    {% for page in site.pages %}
+      {% if page.carpeta == "webs" %}
+          <a id="article" href="{{ page.link }}">
+            <img src="../assets/images/articles/{{ page.title }}.png" width="100%"/>
+            <b>{{ page.title }}</b>
+          </a>
+      {% endif %}
+    {% endfor %}
+  </articles>
+</body>
+</html>
